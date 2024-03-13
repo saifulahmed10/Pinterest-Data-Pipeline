@@ -8,9 +8,12 @@ This pipeline will extract, transform and load data from an API using batch proc
 
 These services will be used in conjunction with AWS, to create VPC which will contain an EC2 instance for its consumer and producer.
 
-# Installation
+# Technologies Used
 
-
+- ***`Apache Kafka`***    ***`Python`***
+- ***`Apache Spark`***    ***`SQL`***
+- ***`Apache Airflow`***  ***`Databricks`***
+- ***`Apache Kinesis`***
 
 Set up environment on AWS and GitHub 
 
