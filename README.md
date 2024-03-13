@@ -10,9 +10,9 @@ These services will be used in conjunction with AWS, to create VPC which will co
 
 # Technologies Used
 
-- ***`Apache Kafka`***    ***`Python`***
-- ***`Apache Spark`***    ***`SQL`***
-- ***`Apache Airflow`***  ***`Databricks`***
+- ***`Apache Kafka`***    - ***`Python`***
+- ***`Apache Spark`***    - ***`SQL`***
+- ***`Apache Airflow`***  - ***`Databricks`***
 - ***`Apache Kinesis`***
 
 Set up environment on AWS and GitHub 
