@@ -37,7 +37,7 @@ These services will be used in conjunction with AWS, which will contain an EC2 i
 
 # Amazon Managed Streaming for Apache Kafka (MSK)
 
-To set up an MSK cluster, a ***`client.properties`*** file will need to be made with the appropriate credentials inside your ***`Kafka_folder/bin`*** directory
+To set up an MSK cluster, a ***`client.properties`*** file will need to be made with the appropriate credentials inside your ***`Kafka_folder/bin`*** directory.
 Then create topics using the Apache create topics command.
 
 Three topics made:
