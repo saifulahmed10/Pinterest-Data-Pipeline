@@ -1,5 +1,7 @@
 # Pinterest-Data-Pipeline
 
+# Project Overview
+
 This pipeline will extract, transform and load data from an API using batch processing and stream processing, using the following Apache services:
 - Apache Spark
 - Apache Kafka
@@ -7,6 +9,12 @@ This pipeline will extract, transform and load data from an API using batch proc
 - Apache Kinesis
 
 These services will be used in conjunction with AWS, which will contain an EC2 instance as an Apache client machine.
+
+# Table of Contents
+- [Project Overview](#project-overview)
+- [Technologies Used](#technologies-used)
+- [Prerequisites](#prerequisites)
+- [Amazon Managed Streaming for Apache Kafka (MSK)](#amazon-managed-streaming-for-apache-kafka-(MSK))
 
 # Technologies Used
 
