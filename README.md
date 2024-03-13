@@ -41,7 +41,7 @@ To set up an MSK cluster, a ***`client.properties`*** file will need to be made 
 Then create topics using the Apache create topics command.
 
 Three topics made:
-<your_UserId>.pin for the Pinterest posts data
-<your_UserId>.geo for the post geolocation data
-<your_UserId>.user for the post user data
+- <your_UserId>.pin for the Pinterest posts data
+- <your_UserId>.geo for the post geolocation data
+- <your_UserId>.user for the post user data
 
