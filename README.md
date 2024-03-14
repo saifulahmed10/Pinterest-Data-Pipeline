@@ -45,3 +45,7 @@ Three topics made:
 - <your_UserId>.geo for the post geolocation data
 - <your_UserId>.user for the post user data
 
+# Connecting MSK cluster to an S3 bucket and creating a custom plugin
+
+Once the S3 bucket is made, the confluent.io package is downloaded onto the EC2 client machine. 
+
