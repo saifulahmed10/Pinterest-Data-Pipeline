@@ -6,7 +6,10 @@ import boto3
 import json
 import sqlalchemy
 from sqlalchemy import text
+<<<<<<< HEAD
 from datetime import datetime
+=======
+>>>>>>> 73a00b9da3eb6a4e57363ebe2c7b5c44d8709b44
 
 
 random.seed(100)
@@ -36,8 +39,11 @@ def run_infinite_post_data_loop():
         random_row = random.randint(0, 11000)
         engine = new_connector.create_db_connector()
 
+<<<<<<< HEAD
         
 
+=======
+>>>>>>> 73a00b9da3eb6a4e57363ebe2c7b5c44d8709b44
         with engine.connect() as connection:
 
             pin_string = text(f"SELECT * FROM pinterest_data LIMIT {random_row}, 1")
@@ -58,6 +64,7 @@ def run_infinite_post_data_loop():
             for row in user_selected_row:
                 user_result = dict(row._mapping)
             
+<<<<<<< HEAD
     
 
         invoke_url_1 = 'https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/Prod/topics/1279c94681db.pin'
@@ -93,6 +100,12 @@ def run_infinite_post_data_loop():
         print(response_1.status_code)
         print(response_2.status_code)
         print(response_3.status_code)
+=======
+            print(pin_result)
+            print(geo_result)
+            print(user_result)
+
+>>>>>>> 73a00b9da3eb6a4e57363ebe2c7b5c44d8709b44
 
 if __name__ == "__main__":
     run_infinite_post_data_loop()
