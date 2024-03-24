@@ -6,10 +6,7 @@ import boto3
 import json
 import sqlalchemy
 from sqlalchemy import text
-<<<<<<< HEAD
 from datetime import datetime
-=======
->>>>>>> 73a00b9da3eb6a4e57363ebe2c7b5c44d8709b44
 
 
 random.seed(100)
@@ -39,11 +36,6 @@ def run_infinite_post_data_loop():
         random_row = random.randint(0, 11000)
         engine = new_connector.create_db_connector()
 
-<<<<<<< HEAD
-        
-
-=======
->>>>>>> 73a00b9da3eb6a4e57363ebe2c7b5c44d8709b44
         with engine.connect() as connection:
 
             pin_string = text(f"SELECT * FROM pinterest_data LIMIT {random_row}, 1")
@@ -64,48 +56,45 @@ def run_infinite_post_data_loop():
             for row in user_selected_row:
                 user_result = dict(row._mapping)
             
-<<<<<<< HEAD
-    
+            try:
 
-        invoke_url_1 = 'https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/Prod/topics/1279c94681db.pin'
-        invoke_url_2 = 'https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/Prod/topics/1279c94681db.geo'
-        invoke_url_3 = 'https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/Prod/topics/1279c94681db.user'
-        headers = {'Content-Type': 'application/vnd.kafka.json.v2+json'}
+                invoke_url_1 = 'https://cjgm0w4k0c.execute-api.us-east-1.amazonaws.com/Prod/topics/1279c94681db.pin'
+                invoke_url_2 = 'https://cjgm0w4k0c.execute-api.us-east-1.amazonaws.com/Prod/topics/1279c94681db.geo'
+                invoke_url_3 = 'https://cjgm0w4k0c.execute-api.us-east-1.amazonaws.com/Prod/topics/1279c94681db.user'
+                headers = {'Content-Type': 'application/vnd.kafka.json.v2+json'}
 
-        geo_result["timestamp"] = geo_result["timestamp"].isoformat()
-        user_result["date_joined"] = user_result["date_joined"].isoformat()
+                geo_result["timestamp"] = geo_result["timestamp"].isoformat()
+                user_result["date_joined"] = user_result["date_joined"].isoformat()
 
-        payload_1 = json.dumps({
-            "records": [
-                {"value": {"index": pin_result["index"], "unique_id": pin_result["unique_id"], "title": pin_result["title"], "description": pin_result["description"], "poster_name": pin_result["poster_name"], "follower_count": pin_result["follower_count"], "tag_list": pin_result["tag_list"], "is_image_or_video": pin_result["is_image_or_video"], "image_src": pin_result["image_src"], "downloaded": pin_result["downloaded"], "save_location": pin_result["save_location"], "category": pin_result["category"]}}
-            ]
-        })
-        
-        response_1 = requests.request("POST", invoke_url_1, headers=headers, data=payload_1)
+                payload_1 = json.dumps({
+                    "records": [
+                        {"value": {"index": pin_result["index"], "unique_id": pin_result["unique_id"], "title": pin_result["title"], "description": pin_result["description"], "poster_name": pin_result["poster_name"], "follower_count": pin_result["follower_count"], "tag_list": pin_result["tag_list"], "is_image_or_video": pin_result["is_image_or_video"], "image_src": pin_result["image_src"], "downloaded": pin_result["downloaded"], "save_location": pin_result["save_location"], "category": pin_result["category"]}}
+                    ]
+                })
+                
+                response_1 = requests.request("POST", invoke_url_1, headers=headers, data=payload_1)
 
-        payload_2 = json.dumps({
-            "records": [
-                {"value": {"ind": geo_result["ind"], "timestamp": geo_result["timestamp"], "latitude": geo_result["latitude"], "longitude": geo_result["longitude"], "country": geo_result["country"]}}
-            ]
-        })
-        response_2 = requests.request("POST", invoke_url_2, headers=headers, data=payload_2)
+                # payload_2 = json.dumps({
+                #     "records": [
+                #         {"value": {"ind": geo_result["ind"], "timestamp": geo_result["timestamp"], "latitude": geo_result["latitude"], "longitude": geo_result["longitude"], "country": geo_result["country"]}}
+                #     ]
+                # })
+                # response_2 = requests.request("POST", invoke_url_2, headers=headers, data=payload_2)
 
-        payload_3 = json.dumps({
-            "records": [
-                {"value": {"ind": user_result["ind"], "first_name": user_result["first_name"], "last_name": user_result["last_name"], "age": user_result["age"], "date_joined": user_result["date_joined"]}}
-            ]
-        })
-        response_3 = requests.request("POST", invoke_url_3, headers=headers, data=payload_3)
+                # payload_3 = json.dumps({
+                #     "records": [
+                #         {"value": {"ind": user_result["ind"], "first_name": user_result["first_name"], "last_name": user_result["last_name"], "age": user_result["age"], "date_joined": user_result["date_joined"]}}
+                #     ]
+                # })
+                # response_3 = requests.request("POST", invoke_url_3, headers=headers, data=payload_3)
 
-        print(response_1.status_code)
-        print(response_2.status_code)
-        print(response_3.status_code)
-=======
-            print(pin_result)
-            print(geo_result)
-            print(user_result)
+                print(response_1.status_code)
+                # print(response_2.status_code)
+                # print(response_3.status_code)
+            
+            except Exception as e:
+                print(f"Error posting data: {e}")
 
->>>>>>> 73a00b9da3eb6a4e57363ebe2c7b5c44d8709b44
 
 if __name__ == "__main__":
     run_infinite_post_data_loop()
