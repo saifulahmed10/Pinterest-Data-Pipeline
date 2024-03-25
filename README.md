@@ -47,5 +47,33 @@ Three topics made:
 
 # Connecting MSK cluster to an S3 bucket and creating a custom plugin
 
-Once the S3 bucket is made, the confluent.io package is downloaded onto the EC2 client machine. 
+Once the S3 bucket is made, the confluent.io package is downloaded onto the EC2 client machine.
+When creating the API make sure to add {proxy+} resource and clicking ANY. The endpoint URL should have the following format: http://KafkaClientEC2InstancePublicDNS:8082/{proxy}.
 
+Run the following commands: sudo wget https://packages.confluent.io/archive/7.2/confluent-7.2.0.tar.gz
+tar -xvzf confluent-7.2.0.tar.gz and there should be a ***`confluent-7.2.0`*** directory on the EC2 instance.
+
+In the confluent-7.2.0/etc/kafka-rest directory, run nano kafka-rest.properties and add the following credentials.
+
+# Sets up TLS for encryption and SASL for authN.
+client.security.protocol = SASL_SSL
+
+# Identifies the SASL mechanism to use.
+client.sasl.mechanism = AWS_MSK_IAM
+
+# Binds SASL client implementation.
+client.sasl.jaas.config = software.amazon.msk.auth.iam.IAMLoginModule required awsRoleArn="Your Access Role";
+
+# Encapsulates constructing a SigV4 signature based on extracted credentials.
+# The SASL client bound by "sasl.jaas.config" invokes this class.
+client.sasl.client.callback.handler.class = software.amazon.msk.auth.iam.IAMClientCallbackHandler
+
+To allow communication between the REST proxy and the cluster brokers, all configurations should be prefixed with client.
+
+The invoke URL should be in this format: https://YourAPIInvokeURL/test/topics/<AllYourTopics>. Make a note of this as it will be used later on.
+
+Run the following command in the confluent-7.2.0/bin folder: ./kafka-rest-start /home/ec2-user/confluent-7.2.0/etc/kafka-rest/kafka-rest.properties. If it works you will see INFO Server started, listening for requests... in your EC2 console.
+
+Run python script that allows Python requests library to test the API and obtain a response. To make sure you can send messages to an AWS API gateway API using the invoke URL. 
+
+This data will be getting stored in the S3 bucket if the data is sent to the cluster correctly.
