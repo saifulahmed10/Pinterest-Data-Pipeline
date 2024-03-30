@@ -129,3 +129,11 @@ df = spark.read.format(file_type) \
 .load(file_location)
 -- Display Spark dataframe to check its content
 display(df)
+
+# Data transformation and Data analysis
+
+Performed data analysis to extract insights from the user, geo and pin data. The analysis focused on a variety of insights for example median follower count by age group and year, or the most popular category in each country.
+
+# SQL queries
+
+
