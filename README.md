@@ -137,3 +137,27 @@ Performed data analysis to extract insights from the user, geo and pin data. The
 # SQL queries
 
 
+### Airflow DAG Configuration
+
+The Airflow DAG '1279c94681db_dag' is defined to schedule and manage the execution of tasks using Apache Airflow. The DAG is configured with the following settings:
+
+- **Start Date**: The DAG is set to start running from the current date and time.
+- **Schedule Interval**: The DAG is scheduled to run daily ('@daily').
+- **Catchup**: The catchup parameter is set to False, preventing backfilling missed intervals.
+
+### Default Arguments
+
+The `default_args` dictionary includes settings such as the owner, dependency on past runs, email notification settings, number of retries, and retry delay.
+
+### Operators
+
+Within the DAG, the DatabricksSubmitRunOperator is used to submit a run to Databricks. This operator is configured with the following details:
+- Task ID: 'submit_run'
+- Databricks Connection ID: 'databricks_default'
+- Existing Cluster ID: '1108-162752-8okw8dgg'
+- Notebook Task Details: {'notebook_path': '<Users/saiful.20@hotmail.co.uk/'}
+
+### Additional Information
+
+You can find the complete DAG definition and operator configurations in the '1279c94681db_dag.py' file in the 'dags' directory.
+
