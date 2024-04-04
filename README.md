@@ -1,4 +1,5 @@
 # Pinterest-Data-Pipeline
+![CloudPinterestPipeline](https://github.com/saifulahmed10/Pinterest-Data-Pipeline/assets/149619315/ba7117f4-2da5-4205-ad55-d902074f3839)
 
 ## Project Overview
 
